@@ -1,12 +1,12 @@
 ##Gulp Template
 
-This app template is an example of a modularized [Gulp](http://gulpjs.com/) file with the following features:
+This template provides an example of a modularized [Gulp](http://gulpjs.com/) file with the following features:
 
 * Automatic injection of CSS and JS links into your index.html with [`gulp-inject`](https://www.npmjs.org/package/gulp-inject/).
 * Automatic build of your Bower dependencies with [`main-bower-files`](https://www.npmjs.org/package/main-bower-files/).
 * Built in web server with live reload via [BrowserSync](http://www.browsersync.io/).  An external URL is accessible from any local device.
 * Compiles [Jade](http://jade-lang.com/) into HTML.
-* Compiles [Stylus](http://learnboost.github.io/stylus/) into CSS.
+* Compiles [Stylus](http://learnboost.github.io/stylus/) into CSS ([nib](https://www.npmjs.org/package/nib) provides autoprefixes and other handy utilities).
 * Two destination options: 'dev' compiles to the 'build' directory and 'prod' compiles to the 'dist' directory.
 
 For starters, a few popular bower dependencies are included to give the injector something to work with:
@@ -21,11 +21,11 @@ For starters, a few popular bower dependencies are included to give the injector
 2. Run `npm install` to install the gulp development dependencies.
 3. Run `bower install`  to install bower dependencies.
 
-After installing, you can run `gulp` any time you'd like to build the destination directory, turn on the file watcher, and kick off the server.  The address is currently set to `http://localhost:8088/`.  An external URL will also show up in your terminal window logs.
+After installing, you can run `gulp` to build the destination directory.  Running `gulp` without any arguments also turns on the file watcher and webserver.  The address is currently set to `http://localhost:8088/`.  An external URL will also show up in your terminal window logs.
 
 ###Gulp
 
-The gulpfile has been split into individual modules and moved under a gulp directory.
+The gulpfile has been split into individual modules and moved under a gulp directory.  The main gulp file is located at 'gulp/index.js'.
 
 ####Directory Structure
 
@@ -173,4 +173,4 @@ build/
   index.html
 ```
 
-I've not included the Angular dependencies, but that would be a fine next step.
+The Angular dependencies are not included, but that would be a fine next step.
