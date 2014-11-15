@@ -1,0 +1,53 @@
+{
+  "name": "Gulp-Angular-Template",
+  "version": "0.0.1",
+  "description": "App template for with gulpfile that compiles/injects Jade, Stylus, Bower refs",
+  "homepage": "https://github.com/bholben/gulp-template",
+  "license": "MIT",
+  "authors": [
+    "Bob Holben <bholben@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.0",
+    "font-awesome": "~4.2.0"
+  },
+  "overrides": {
+    "jquery": {
+      "main": {
+        "dev": "dist/jquery.js",
+        "prod": "dist/jquery.min.js"
+      }
+    },
+    "bootstrap": {
+      "main": {
+        "dev": [
+          "dist/css/bootstrap.css",
+          "dist/js/bootstrap.js",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
+        ],
+        "prod": [
+          "dist/css/bootstrap.min.css",
+          "dist/js/bootstrap.min.js",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
+        ]
+      }
+    },
+    "font-awesome": {
+      "main": {
+        "dev": "css/font-awesome.css",
+        "prod": "css/font-awesome.min.css"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bholben/gulp-angular-template.git"
+  }
+}

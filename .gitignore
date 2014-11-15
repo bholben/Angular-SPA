@@ -1,0 +1,9 @@
+
+# Compiled code directories
+build/
+dist/
+
+# Downloaded third-party packages
+node_modules/
+bower_components/
+
