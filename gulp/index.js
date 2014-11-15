@@ -11,7 +11,7 @@ var paths = require('./paths.js'),
     services = require('./services.js');
 
 // Clean (delete destination directory)
-gulp.task('clean', function (cb) { del(paths.dest.root(paths.env), cb); });
+gulp.task('clean', function (cb) { del(paths.dest.root, cb); });
 
 // Build
 gulp.task('build:bower', bower.copyBower())

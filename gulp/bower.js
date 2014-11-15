@@ -21,16 +21,16 @@ module.exports = {
       return gulp.src(bower({env: paths.env}))
 
         .pipe(filterFonts)
-        .pipe(gulp.dest(paths.dest.fonts(paths.env)))
+        .pipe(gulp.dest(paths.dest.fonts))
         .pipe(filterFonts.restore())
 
         .pipe(filterImg)
-        .pipe(gulp.dest(paths.dest.img(paths.env)))
+        .pipe(gulp.dest(paths.dest.img))
         .pipe(filterImg.restore())
 
         .pipe(filterOther)
         // .pipe($.sourcemaps.init())
-        .pipe(gulp.dest(paths.dest.lib(paths.env)))
+        .pipe(gulp.dest(paths.dest.lib))
         // .pipe($.sourcemaps.write())
         .pipe(filterOther.restore());
 
