@@ -14,23 +14,30 @@ For starters, a few popular bower dependencies are included ([jQuery](http://jqu
 ####Installation
 
 1. Clone the repo.
-2. Run `npm install` to install the gulp development dependencies.
-3. Run `bower install`  to install bower dependencies.
+2. Run `npm install` from the command line to install the gulp development dependencies.
+3. Run `bower install` from the command line to install bower dependencies.
 
-After installing, you can run `gulp` to build the destination directory.  Running `gulp` without any arguments also turns on the file watcher and webserver.  The address is currently set to `http://localhost:8088/`.  An external URL will also show up in your terminal window logs.
+####Post-Installation
 
-###Gulp
+**Running Gulp**
+You can run `gulp` to build the destination directory.  Executing `gulp` without any arguments also turns on the file watcher and webserver.  The address is currently set to `http://localhost:8088/`.  An external URL will also show up in your terminal window logs.  This is good for viewing the app on your mobile device (as long as you are on the same LAN).
 
+**Gulp Modules**
 The gulpfile has been split into individual modules and moved under a gulp directory.  The main gulp file is located at 'gulp/index.js'.
 
-####Directory Structure
+**Development & Production Environments**
+To change from 'dev' environment to 'prod' environment, you can set the `env` variable in the 'gulp/paths.js' file.  Changing the environment will change the destination directory the next time you run `gulp`.
 
-To change from 'dev' environment to 'prod' environment, you can set the `env` variable in the 'paths.js' module.  Changing the environment will change the destination directory the next time you run `gulp`.
+* The 'dev' environment compiles to the 'build' directory.
+* The 'prod' environment compiles to the 'dist' directory.
 
-If you want a different directory structure, simply edit the file paths that are globbed in the 'paths.js' module.
+**Directory Structure**
+If you want a different directory structure, simply edit the file paths that are globbed in the 'gulp/paths.js' file.
 
-####Gulp-inject
+**Make it your Own**
+Don't forget to swap out the author and contact info to make it your own.  You'll need to do this in 'src/index.jade', 'package.json', and 'bower.json'.
 
+**Gulp-inject**
 `gulp-inject` automatically converts this:
 
 index.jade
@@ -76,9 +83,9 @@ index.html
 </html>
 ```
 
-###Template Structure
+##Directory Structure
 
-The directory structure will look like this after installing and running gulp.
+The initial directory structure will look like this after installing and running gulp.
 
 **Top Level**
 ```
