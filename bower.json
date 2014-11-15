@@ -16,7 +16,10 @@
     "jquery": {
       "main": {
         "dev": "dist/jquery.js",
-        "prod": "dist/jquery.min.js"
+        "prod": [
+          "dist/jquery.min.js",
+          "dist/jquery.min.map"
+        ]
       }
     },
     "bootstrap": {
@@ -31,6 +34,7 @@
         ],
         "prod": [
           "dist/css/bootstrap.min.css",
+          "dist/css/bootstrap.css.map",
           "dist/js/bootstrap.min.js",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",
@@ -41,8 +45,14 @@
     },
     "font-awesome": {
       "main": {
-        "dev": "css/font-awesome.css",
-        "prod": "css/font-awesome.min.css"
+        "dev": [
+          "./css/font-awesome.css",
+          "./fonts/*"
+        ],
+        "prod": [
+          "./css/font-awesome.min.css",
+          "./fonts/*"
+        ]
       }
     }
   },
