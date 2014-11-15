@@ -9,11 +9,7 @@ This template provides an example of a modularized [Gulp](http://gulpjs.com/) fi
 * Compiles [Stylus](http://learnboost.github.io/stylus/) into CSS ([nib](https://www.npmjs.org/package/nib) provides autoprefixes and other handy utilities).
 * Two destination options: 'dev' compiles to the 'build' directory and 'prod' compiles to the 'dist' directory.
 
-For starters, a few popular bower dependencies are included to give the injector something to work with:
-
-* [jQuery](http://jquery.com/) - Javascript library
-* [Bootstrap](http://getbootstrap.com/) - HTML/CSS/JS framework
-* [Font-Awesome](http://fontawesome.io/) - Hundreds of free icons
+For starters, a few popular bower dependencies are included ([jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Font-Awesome](http://fontawesome.io/)) to give the injector something to work with.
 
 ####Installation
 
@@ -82,7 +78,7 @@ index.html
 
 ###Template Structure
 
-The directory structure will look like this after running gulp.
+The directory structure will look like this after installing and running gulp.
 
 **Top Level**
 ```
