@@ -16,13 +16,13 @@ For starters, a few popular bower dependencies are included ([jQuery](http://jqu
 **Gulp Plugin Selection**  
 At the time of this writing, none of the selected 'gulp-*' plugins have been [blacklisted](https://github.com/gulpjs/plugins/blob/master/src/blackList.json); they do appear in the [gulp registry](http://gulpjs.com/plugins/) which indicates some level of endorsement by the gulp maintainers.
 
-####Installation
+##Installation
 
 1. Clone the repo.
 2. Run `npm install` from the command line to install the gulp development dependencies.
 3. Run `bower install` from the command line to install bower dependencies.
 
-####Usage
+##Usage
 
 **Running Gulp**  
 You can run `gulp` to build the destination directory.  Executing `gulp` without any arguments also turns on the file watcher and webserver.  The address is currently set to `http://localhost:8088/`.  An external URL will also show up in your terminal window logs.  This is good for viewing the app on your mobile device (as long as you are on the same LAN).
@@ -45,7 +45,7 @@ Don't forget to swap out the author and contact info to make it your own.  You'l
 **Minified Bower Files**
 The 'gulp/tasks/bower.js' module will use minifed vendor CSS and JS files if they are available.  You can tell it where to get them by adding to the `overrides` section of the 'bower.json' file under `prod`.
 
-**uncss**
+**uncss**  
 Run `gulp uncss` as a standalone command at any time after you have a destination directory built.  This is an excellent last step before deploying; it should yield a significant size reduction of your css files.
 
 **Gulp-inject**  
