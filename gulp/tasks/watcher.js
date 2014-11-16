@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 
-var paths = require('./paths.js'),
+var paths = require('../paths.js'),
     build = require('./build.js'),
     inject = require('./inject.js');
 

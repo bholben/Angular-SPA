@@ -2,7 +2,7 @@
 
 var browserSync = require('browser-sync');
 
-var paths = require('./paths.js');
+var paths = require('../paths.js');
 
 module.exports = {
 

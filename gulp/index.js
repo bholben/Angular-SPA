@@ -5,12 +5,12 @@ var gulp = require('gulp'),
     sequence = require('run-sequence');
 
 var paths = require('./paths.js'),
-    build = require('./build.js'),
-    bower = require('./bower.js'),
-    inject = require('./inject.js'),
-    uncss = require('./uncss.js'),
-    watcher = require('./watcher.js'),
-    server = require('./server.js');
+    build = require('tasks/build.js'),
+    bower = require('tasks/bower.js'),
+    inject = require('tasks/inject.js'),
+    uncss = require('tasks/uncss.js'),
+    watcher = require('tasks/watcher.js'),
+    server = require('tasks/server.js');
 
 // Clean (delete destination directory)
 gulp.task('clean', function (cb) { del(paths.dest.all, cb); });
@@ -39,7 +39,7 @@ gulp.task('watch', watcher.watchFiles);
 // Serve
 gulp.task('serve', function () { server.serve(); });
 
-// Put it all together
+// Put it all together (keep UnCSS separate for performance)
 gulp.task('default', function (cb) {
       sequence('clean', 'build', 'inject', 'watch', 'serve', cb);
     });

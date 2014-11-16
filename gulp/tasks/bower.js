@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     bower = require('main-bower-files'),
     $ = require('gulp-load-plugins')({ lazy: false });
 
-var paths = require('./paths.js');
+var paths = require('../paths.js');
 
 module.exports = {
 

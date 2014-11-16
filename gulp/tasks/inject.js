@@ -6,7 +6,7 @@
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')({ lazy: false });
 
-var paths = require('./paths.js');
+var paths = require('../paths.js');
 
 module.exports = {
 
