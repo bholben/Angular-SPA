@@ -41,6 +41,6 @@ gulp.task('serve', function () { server.serve(); });
 
 // Put it all together
 gulp.task('default', function (cb) {
-      sequence('clean', 'build', 'inject', 'uncss', 'watch', 'serve', cb);
+      sequence('clean', 'build', 'inject', 'watch', 'serve', cb);
     });
 

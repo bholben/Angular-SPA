@@ -1,6 +1,6 @@
 'use strict';
 
-var ENVIRONMENT = 'prod';  // 'dev'  ==> compiles to: 'build'
+var ENVIRONMENT = 'dev';  // 'dev'  ==> compiles to: 'build'
                           // 'prod' ==> compiles to: 'dist'
                           // 'cdn'  ==> compiles to: 'dist' with CDN links
 
