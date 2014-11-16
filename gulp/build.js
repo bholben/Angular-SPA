@@ -1,8 +1,5 @@
 'use strict';
 
-// TODO:
-  //  - Rename to .min for minified js - get paths right for components.
-
 var gulp = require('gulp'),
     nib = require('nib'),
     $ = require('gulp-load-plugins')({ lazy: false });
@@ -43,9 +40,10 @@ module.exports = {
       return gulp.src(paths.src.js)
         .pipe($.angularFilesort())
         .pipe($.if(!paths.isDev, $.uglify({preserveComments: 'some'})))
-        // .pipe($.if(!paths.isDev, $.rename('app.min.js')))
+        .pipe($.rename({extname: '.min.js'}))
         .pipe(gulp.dest(paths.dest.root));
     };
-  },
+  }
+
 };
 
