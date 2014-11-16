@@ -8,10 +8,12 @@ var paths = require('./paths.js'),
     build = require('./build.js'),
     bower = require('./bower.js'),
     inject = require('./inject.js'),
-    services = require('./services.js');
+    uncss = require('./uncss.js'),
+    watcher = require('./watcher.js'),
+    server = require('./server.js');
 
 // Clean (delete destination directory)
-gulp.task('clean', function (cb) { del(paths.dest.root, cb); });
+gulp.task('clean', function (cb) { del(paths.dest.all, cb); });
 
 // Build
 gulp.task('build:bower', bower.copyBower())
@@ -24,14 +26,21 @@ gulp.task('build:bower', bower.copyBower())
 // Inject
 gulp.task('inject', inject.injectIndex);
 
+// UnCSS
+gulp.task('uncssBower', uncss.uncssBower());
+gulp.task('uncssCustom', uncss.uncssCustom());
+gulp.task('uncss', function (cb) {
+      sequence('uncssBower', 'uncssCustom', cb);
+    });
+
 // Watch
-gulp.task('watch', services.watchFiles);
+gulp.task('watch', watcher.watchFiles);
 
 // Serve
-gulp.task('serve', function () { services.serve(); });
+gulp.task('serve', function () { server.serve(); });
 
 // Put it all together
 gulp.task('default', function (cb) {
-      sequence('clean', 'build', 'inject', 'watch', 'serve', cb);
+      sequence('clean', 'build', 'inject', 'uncss', 'watch', 'serve', cb);
     });
 

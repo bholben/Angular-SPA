@@ -1,8 +1,7 @@
 'use strict';
 
 // TODO:
-  //  - Get rid of unused CSS rules (gulp-uncss).
-  //  - Convert to coffee?
+  //  - Rename to .min for minified js - get paths right for components.
 
 var gulp = require('gulp'),
     nib = require('nib'),
@@ -14,8 +13,9 @@ module.exports = {
 
   copyAssets: function () {
     return function () {
-      return gulp.src(paths.src.assets)
+      var assets = gulp.src(paths.src.assets)
         .pipe(gulp.dest(paths.dest.root));
+      return assets;
     };
   },
 
@@ -33,7 +33,7 @@ module.exports = {
       return gulp.src(paths.src.cssMaster)
         // 'nib' adds autoprefixing and some other niceties.
         .pipe($.stylus({use: nib(), compress: !paths.isDev}))
-        .pipe($.rename('app.css'))
+        .pipe($.if(paths.isDev, $.rename('app.css'), $.rename('app.min.css')))
         .pipe(gulp.dest(paths.dest.root));
     };
   },
@@ -42,7 +42,8 @@ module.exports = {
     return function () {
       return gulp.src(paths.src.js)
         .pipe($.angularFilesort())
-        .pipe($.uglify({preserveComments: 'some'}))
+        .pipe($.if(!paths.isDev, $.uglify({preserveComments: 'some'})))
+        // .pipe($.if(!paths.isDev, $.rename('app.min.js')))
         .pipe(gulp.dest(paths.dest.root));
     };
   },
