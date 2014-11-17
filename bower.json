@@ -1,7 +1,7 @@
 {
-  "name": "Gulp-Angular-Template",
+  "name": "Gulp-Template",
   "version": "0.0.1",
-  "description": "App template with gulpfile that compiles/injects Jade, Stylus, Bower refs",
+  "description": "Web app template with gulpfile that compiles/injects Jade, Stylus, Bower refs",
   "homepage": "https://github.com/bholben/gulp-template",
   "license": "MIT",
   "authors": [
@@ -57,6 +57,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bholben/gulp-angular-template.git"
+    "url": "git://github.com/bholben/gulp-template.git"
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Gulp-Angular-Template",
+  "name": "Gulp-Template",
   "version": "0.0.1",
-  "description": "App template with gulpfile that compiles/injects Jade, Stylus, Bower refs",
+  "description": "Web app template with gulpfile that compiles/injects Jade, Stylus, Bower refs",
   "author": "Bob Holben",
   "license": "MIT",
   "devDependencies": {
