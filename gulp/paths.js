@@ -31,6 +31,7 @@ module.exports = {
     any:         dest + '/**',
     uncssHTML:   dest + '/**/*.html',
     uncssBower:  dest + '/lib/*.css',
+    uncssCSSMap: dest + '/lib/*.css.map',
     uncssCustom: dest + '/app.css'
   }
 };
