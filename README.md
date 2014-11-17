@@ -10,6 +10,7 @@ This template provides an example of a modularized [Gulp](http://gulpjs.com/) fi
 * Potentially massive CSS file size reduction with [`gulp-uncss`](https://www.npmjs.org/package/gulp-uncss/) which eliminates unused selectors.
 * Compiles [Jade](http://jade-lang.com/) into HTML.
 * Compiles [Stylus](http://learnboost.github.io/stylus/) into CSS ([nib](https://www.npmjs.org/package/nib) provides autoprefixes and other handy utilities).
+* All source file edits immediately compiled with `gulp.watch`.  New files are also captured.
 
 For starters, a few popular bower dependencies are included ([jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Font-Awesome](http://fontawesome.io/)) to give the injector something to work with.
 

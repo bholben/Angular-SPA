@@ -5,12 +5,12 @@ var gulp = require('gulp'),
     sequence = require('run-sequence');
 
 var paths = require('./paths.js'),
-    build = require('tasks/build.js'),
-    bower = require('tasks/bower.js'),
-    inject = require('tasks/inject.js'),
-    uncss = require('tasks/uncss.js'),
-    watcher = require('tasks/watcher.js'),
-    server = require('tasks/server.js');
+    build = require('./tasks/build.js'),
+    bower = require('./tasks/bower.js'),
+    inject = require('./tasks/inject.js'),
+    uncss = require('./tasks/uncss.js'),
+    watcher = require('./tasks/watcher.js'),
+    server = require('./tasks/server.js');
 
 // Clean (delete destination directory)
 gulp.task('clean', function (cb) { del(paths.dest.all, cb); });
