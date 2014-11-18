@@ -17,6 +17,7 @@ module.exports = {
     index:        SRC + '/index.jade',
     cssMaster:    SRC + '/styles/css_master.styl',
     jade:        [SRC + '/**/*.jade', '!' + SRC + '/components/main_*/*.jade', '!' + SRC + '/index.jade'],
+    jadeWatch:    SRC + '/**/*.jade',
     stylus:       SRC + '/styles/*.styl',
     js:          [SRC + '/**/*.js',   '!' + SRC + '/bower_components/**/*.*']
   },
