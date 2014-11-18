@@ -38,9 +38,8 @@ module.exports = {
   buildJS: function () {
     return function () {
       return gulp.src(paths.src.js)
-        .pipe($.angularFilesort())
         .pipe($.if(!paths.isDev, $.uglify({preserveComments: 'some'})))
-        .pipe($.rename({extname: '.min.js'}))
+        .pipe($.if(!paths.isDev, $.rename({extname: '.min.js'})))
         .pipe(gulp.dest(paths.dest.root));
     };
   }
