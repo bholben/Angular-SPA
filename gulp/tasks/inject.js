@@ -16,8 +16,7 @@ module.exports = {
     return gulp.src(paths.src.index)
       .pipe($.inject(  // Inject bower files.
         gulp.src(paths.dest.bower, {read: false})
-          .pipe($.angularFilesort())
-          .pipe($.order(['**jquery**', '**bootstrap**'])),
+          .pipe($.order(['**jquery**', '**bootstrap**', '**angular.js'])),
           {ignorePath: paths.dest.root, name: 'components'}))
       .pipe($.inject(  // Inject custom files.
         gulp.src(paths.dest.custom, {read: false})

@@ -16,7 +16,7 @@ module.exports = {
     assets:       SRC + '/assets/**',
     index:        SRC + '/index.jade',
     cssMaster:    SRC + '/styles/css_master.styl',
-    jade:        [SRC + '/**/*.jade', '!' + SRC + '/index.jade'],
+    jade:        [SRC + '/**/*.jade', '!' + SRC + '/components/main_*/*.jade', '!' + SRC + '/index.jade'],
     stylus:       SRC + '/styles/*.styl',
     js:          [SRC + '/**/*.js',   '!' + SRC + '/bower_components/**/*.*']
   },
