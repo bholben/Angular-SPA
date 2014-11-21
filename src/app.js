@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  angular.module('myApp', ['ngRoute', 'ngAnimate']);
+  angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngTouch']);
 
   angular.module('myApp').config(function ($routeProvider) {
     $routeProvider

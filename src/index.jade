@@ -18,7 +18,8 @@ html(lang='en' ng-app='myApp')
   body
     div(ng-controller='MenuController as mc')
       nav.topbar
-        span(ng-click='mc.toggleMenu()') &#9776;
+        i.fa.fa-bars(ng-click='mc.toggleMenu()')
+        //- span(ng-click='mc.toggleMenu()') &#9776;
 
       nav.menu(ng-cloak ng-class="{'close-menu': mc.closeMenuRequest()}")
         ul.menu-groups.clearfix
@@ -26,9 +27,9 @@ html(lang='en' ng-app='myApp')
             i.fa(class='fa-{{ group.icon }}' ng-class="{'group-active-icon': mc.isActiveMenuGroup(group)}")
         div.menu-group-title {{ mc.menu.heading }}
         ul.menu-items
-          li.menu-active(ng-repeat='item in mc.menu.items' ng-click='mc.selectView(item)' ng-class="{'item-active': mc.isActiveMenu(item) || hover}" ng-mouseover='hover=true' ng-mouseleave='hover=false')
+          li(ng-repeat='item in mc.menu.items' ng-click='mc.selectView(item)' ng-class="{'item-active': mc.isActiveMenu(item) || hover}" ng-mouseover='hover=true' ng-mouseleave='hover=false')
             i.fa(class='fa-{{ item.icon }}' ng-class="{'item-active-icon': mc.isActiveMenu(item)}")
-            span.menu-name(ng-class="{'item-active-text': mc.isActiveMenu(item)}") {{ item.name }}
+            span(ng-class="{'item-active-text': mc.isActiveMenu(item)}") {{ item.name }}
         ul.menu-footer
           li(ng-repeat='item in mc.footer.items' ng-click='mc.selectView(item)')
             i.fa(class='fa-{{ item.icon }}')
