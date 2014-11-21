@@ -27,7 +27,7 @@ module.exports = {
 
   buildCSS: function () {
     return function () {
-      return gulp.src(paths.src.cssMaster)
+      return gulp.src(paths.src.stylus)
         // 'nib' adds autoprefixing and some other niceties.
         .pipe($.stylus({use: nib(), compress: !paths.isDev}))
         .pipe($.if(paths.isDev, $.rename('app.css'), $.rename('app.min.css')))
