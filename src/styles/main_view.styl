@@ -1,0 +1,14 @@
+@import vars
+@media (min-width:minWidthPhone)
+  .view
+    fixed: top topBarHeight left right
+    height: 100%
+    overflow: visible
+    background-color: #ccc
+    z-index: zIndexContent
+  .view .view-transition.ng-enter
+    transition: all 0.5s ease
+    opacity: 0
+  .view .view-transition.ng-enter-active
+    opacity: 1
+

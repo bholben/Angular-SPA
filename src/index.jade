@@ -1,28 +1,42 @@
 doctype html
-html(lang='en')
+html(lang='en' ng-app='myApp')
   head
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    meta(name='author', content='Bob Holben')
-    link(rel='author', href='https://plus.google.com/+BobHolbenThere')
-    link(rel='shortcut icon', href='/icons/favicon.ico')
-    link(rel='apple-touch-icon', href='/icons/apple-touch-icon.png')
+    meta(name='author' content='Bob Holben')
+    link(rel='author' href='https://plus.google.com/+BobHolbenThere')
+    link(rel='shortcut icon' href='/icons/favicon.ico')
+    link(rel='apple-touch-icon' href='/icons/apple-touch-icon.png')
     title My app
-    meta(name='description', content='My Awesome App')
+    meta(name='description' content='My Awesome App')
     //- components:css
-    //- bower installed css files will go here...
     //- endinject
     //- app:css
-    //- built css files will go here...
     //- endinject
     //- All JavaScript at the bottom, except for Modernizr (which includes HTML5 shim)
   body
-    h1 Hello World!!
+    div(ng-controller='MenuController as mc')
+      nav.topbar
+        span(ng-click='mc.toggleMenu()') &#9776;
+
+      nav.menu(ng-cloak ng-class="{'close-menu': mc.closeMenuRequest()}")
+        ul.menu-groups.clearfix
+          li(ng-repeat='group in mc.groups' ng-click='mc.selectMenu(group)' ng-class="{'group-active': mc.isActiveMenuGroup(group)}")
+            i.fa(class='fa-{{ group.icon }}' ng-class="{'group-active-icon': mc.isActiveMenuGroup(group)}")
+        div.menu-group-title {{ mc.menu.heading }}
+        ul.menu-items
+          li.menu-active(ng-repeat='item in mc.menu.items' ng-click='mc.selectView(item)' ng-class="{'item-active': mc.isActiveMenu(item) || hover}" ng-mouseover='hover=true' ng-mouseleave='hover=false')
+            i.fa(class='fa-{{ item.icon }}' ng-class="{'item-active-icon': mc.isActiveMenu(item)}")
+            span.menu-name(ng-class="{'item-active-text': mc.isActiveMenu(item)}") {{ item.name }}
+        ul.menu-footer
+          li(ng-repeat='item in mc.footer.items' ng-click='mc.selectView(item)')
+            i.fa(class='fa-{{ item.icon }}')
+
+    div.view
+      div.view-transition(ng-view)
     //- components:js
-    //- bower installed scripts will go here...
     //- endinject
     //- app:js
-    //- app scripts will go here...
     //- endinject
 
