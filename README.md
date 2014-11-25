@@ -1,6 +1,8 @@
-##Gulp Template
+##Responsive Angular SPA Template with Gulp
 
-This template provides an example of a modularized [Gulp](http://gulpjs.com/) file with the following features:
+This template is a staring point for building a responsive AngularJS single page application (SPA).  It is heavily influenced by Elliot Hesp's [Responsive Dashboard](https://github.com/Ehesp/Responsive-Dashboard), but ported to a slightly different architecture with a few different tools.
+
+The modularized [Gulp](http://gulpjs.com/) file includes the following features:
 
 * Three environment options: `dev`, `prod`, `cdn`.
 * Compiles to 'build' or 'dist' based on your environment setting.
@@ -12,7 +14,10 @@ This template provides an example of a modularized [Gulp](http://gulpjs.com/) fi
 * Compiles [Stylus](http://learnboost.github.io/stylus/) into CSS ([nib](https://www.npmjs.org/package/nib) provides autoprefixes and other handy utilities).
 * All source file edits immediately compiled with `gulp.watch`.  New files are also captured.
 
-For starters, a few popular bower dependencies are included ([jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Font-Awesome](http://fontawesome.io/)) to give the injector something to work with.
+The app references some bower packages, including:
+
+* [Angular](https://angularjs.org/)
+* [Font-Awesome](http://fontawesome.io/)
 
 **Gulp Plugin Selection**  
 At the time of this writing, none of the selected 'gulp-*' plugins have been [blacklisted](https://github.com/gulpjs/plugins/blob/master/src/blackList.json); they do appear in the [gulp registry](http://gulpjs.com/plugins/) which indicates some level of endorsement by the gulp maintainers.
@@ -49,8 +54,11 @@ The 'gulp/tasks/bower.js' module will use minifed vendor CSS and JS files if the
 **uncss**  
 Run `gulp uncss` as a standalone command at any time after you have a destination directory built.  This is an excellent last step before deploying; it should yield a significant size reduction of your css files.
 
+**Tests**
+No accommodations have been made for tests yet.
+
 **Gulp-inject**  
-`gulp-inject` automatically converts this:
+`gulp-inject` is awesome!  It automatically converts this:
 
 index.jade
 ```jade
@@ -73,31 +81,34 @@ html
     //- endinject
 ```
 
-...into something like this:
+...into something like this (dev environment shown):
 
 index.html
 ```html
 <html>
   <head>
     <title>My app</title>
-    <link rel="stylesheet" href="/lib/bower/bootstrap.css">
-    <link rel="stylesheet" href="/lib/bower/font-awesome.css">
-    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/lib/font-awesome.css">
+    <link rel="stylesheet" href="/app/app.css">
   </head>
   <body>
-    <div></div>
-    <script src="/lib/bower/jquery.js"></script>
-    <script src="/lib/bower/bootstrap.js"></script>
-    <script src="/components/user_login/user_login-controller.js"></script>
-    <script src="/app.js"></script>
-    <script src="/app-controller.js"></script>
+    <div>...</div>
+    <script src="/lib/angular.js"></script>
+    <script src="/lib/angular-animate.js"></script>
+    <script src="/lib/angular-route.js"></script>
+    <script src="/app/nav/nav.factory.js"></script>
+    <script src="/app/nav/nav.controller.js"></script>
+    <script src="/app/app.routes.js"></script>
+    <script src="/app/app.rootScope.js"></script>
+    <script src="/app/app.js"></script>
   </body>
 </html>
 ```
+Whenever you add a new dependency, all you need to do is run the `bower install --save <new-module\>`.  The `--save` modifier will automatically add the dependency to your 'bower.json' file and  `gulp-inject` will automatically inject it into your 'index.html' file.  The only place you might need to add the dependency is into your Angular dependency injection line for the module where you are using it.
 
 ##Directory Structure
 
-The initial directory structure will look like this after installing and running gulp.
+The initial directory structure will look like this after installing and running `gulp`.
 
 **Top Level**  
 ```
@@ -106,42 +117,38 @@ gulp/
 node_modules/
 src/
 .bowerrc
-.editorconfig
-.gitignore
-.jshintrc
 bower.json
 gulpfile.js
-LICENSE
 package.json
-README.md
+...
 ```
 
 **Source Files**  
 ```
 src/
+  app/
+    nav/
+      nav.controller.js
+      nav.factory.js
+      nav.jade
+    other_components/
+    .../
+    app.js
+    app.routes.js
   assets/
     fonts/
     icons/
     img/
   bower_components/
-    bootstrap/
-    jquery/
+    angular/
+    font-awesome/
     .../
-  components/
-    user_login/
-      user_login-controller.js
-      user_login-factory.js
-      user_login.jade
-    .../
-  img/
   styles/
-    css_master.styl
-    header.styl
-    loading.styl
-    sidebar.styl
+    components/
+    base.styl
+    index.styl
+    vars.styl
     ...
-  app-controller.js
-  app.js
   index.jade
 ```
 
@@ -149,24 +156,21 @@ src/
 Inspired by [Google's best practice recommendations](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub) for AngularJS.
 ```
 build/
-  components/
-    user_login/
-      user_login.html
-      user_login-controller.min.js
-      user_login-factory.min.js
+  app/
+    nav/
+      nav.controller.js
+      nav.factory.js
     .../
+    app.css
+    app.js
+    app.routes.js
+    ...
   fonts/
+  icons/
   img/
   lib/
     angular.js
-    bootstrap.css
     font-awesome.css
-    jquery.js
     ...
-  app-controller.js
-  app.css
-  app.js
   index.html
 ```
-
-The Angular dependencies are not included, but that would be a fine next step.
