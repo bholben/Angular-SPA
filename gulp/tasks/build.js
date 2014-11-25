@@ -31,13 +31,15 @@ module.exports = {
         // 'nib' adds autoprefixing and some other niceties.
         .pipe($.stylus({use: nib(), compress: !paths.isDev}))
         .pipe($.if(paths.isDev, $.rename('app.css'), $.rename('app.min.css')))
-        .pipe(gulp.dest(paths.dest.root));
+        .pipe(gulp.dest(paths.dest.app));
     };
   },
 
   buildJS: function () {
     return function () {
       return gulp.src(paths.src.js)
+        // Add AngularJS dependency injection annotations before minifying.
+        .pipe($.ngAnnotate())
         .pipe($.if(!paths.isDev, $.uglify({preserveComments: 'some'})))
         .pipe($.if(!paths.isDev, $.rename({extname: '.min.js'})))
         .pipe(gulp.dest(paths.dest.root));

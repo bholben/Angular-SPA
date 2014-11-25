@@ -15,7 +15,7 @@ module.exports = {
     bower:        SRC + '/bower_components/**/*.*',
     assets:       SRC + '/assets/**',
     index:        SRC + '/index.jade',
-    jade:        [SRC + '/**/*.jade', '!' + SRC + '/components/main_*/*.jade', '!' + SRC + '/index.jade'],
+    jade:        [SRC + '/**/*.jade', '!' + SRC + '/app/nav/nav.jade', '!' + SRC + '/index.jade'],
     jadeWatch:    SRC + '/**/*.jade',
     stylus:       SRC + '/styles/index.styl',
     stylusWatch:  SRC + '/styles/**/*.styl',
@@ -24,6 +24,7 @@ module.exports = {
   dest: {
     root:        dest,
     all:        ['build', 'dist'],
+    app:         dest + '/app',
     fonts:       dest + '/fonts',
     img:         dest + '/img',
     lib:         dest + '/lib',
