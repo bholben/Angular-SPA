@@ -19,7 +19,7 @@ html(lang='en' ng-app='myApp' ng-strict-di)
     include app/nav/nav.jade
     div.view(ng-cloak ng-click='nav.closeUserMenu()')
       h2.view-title {{ nav.viewName }}
-      div.view-content(ng-view)
+      div.view-content(ui-view)
     //- components:js
     //- endinject
     //- app:js
