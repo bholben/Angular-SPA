@@ -1,0 +1,19 @@
+div.topbar
+  i.fa.fa-bars(ng-click='nav.toggleMainMenu()')
+  i.fa.fa-user(ng-click='nav.toggleUserMenu()') &nbsp;&nbsp;&nbsp;
+  nav.user(ng-cloak)
+    ul.user-menu-items(ng-if='nav.showUserMenu' ng-click='nav.closeUserMenu()')
+      li(ng-repeat='item in nav.menuGroupUser.items' ng-click='nav.selectView(item)') {{ item.name }}
+
+nav.menu(ng-cloak ng-class="{'close-menu': nav.closeMainMenu()}" ng-click='nav.closeUserMenu()')
+  ul.menu-groups.clearfix
+    li(ng-repeat='group in nav.menuGroups' ng-click='nav.selectMenu(group)' ng-class="{'group-active': nav.isActiveMenuGroup(group)}")
+      i.fa(class='fa-{{ group.icon }}' ng-class="{'group-active-icon': nav.isActiveMenuGroup(group)}")
+  div.menu-group-title {{ nav.menuGroupMain.heading }}
+  ul.menu-items
+    li(ng-repeat='item in nav.menuGroupMain.items' ng-click='nav.selectView(item)' ng-class="{'item-active': nav.isActiveMenu(item)}")
+      i.fa(class='fa-{{ item.icon }}' ng-class="{'item-active-icon': nav.isActiveMenu(item)}")
+      span(ng-class="{'item-active-text': nav.isActiveMenu(item)}") {{ item.name }}
+  ul.menu-footer
+    li(ng-repeat='item in nav.menuGroupFooter.items' ng-click='nav.selectView(item)')
+      i.fa(class='fa-{{ item.icon }}')

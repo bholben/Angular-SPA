@@ -1,20 +1,22 @@
 @import '../vars'
 @media (min-width:minWidthPhone)
 
-  .menu
+  // Menu wrapper
+  nav.menu
     fixed: top topBarHeight left
     width: 100%
     height: 100%
     z-index: zIndexMenu
     line-height: menuButtonHeight
-    color: cGrayC
+    color: cGrayE
     background-color: cBase  // Fallback if browser doesn't support transpartency
     background-color: cBaseTrans
-    transition: all 0.5s ease
-  .menu.close-menu
+    transition: all 0.6s ease-in-out
+  nav.menu.close-menu
     left: -600px
 
-  .menu
+  // Menu grouping icons at top
+  nav.menu
     ul.menu-groups
       width: 100%
       margin-bottom: 0
@@ -29,14 +31,15 @@
         background-color: cBaseDark
         cursor: pointer
         .group-active-icon
-          color: cBaseLighter
+          color: cActive
       .group-active
-        border-top: 3px solid pink
+        border-top: 3px solid cActiveBright
         border-left: 1px solid cBaseLight
         border-right: 1px solid cBaseLight
         border-bottom: none
         background-color: cBaseDark
 
+    // Menu group title
     .menu-group-title
       width: 100%
       height: 40px
@@ -44,15 +47,15 @@
       line-height: 40px
       text-transform: uppercase
       font-size: 15px
-      font-weight: 700
-      color: cBaseLighter
+      font-weight: 500
+      color: cActive
       background-color: cBaseDark
 
+    // Main menu body
     ul.menu-items
       absolute: top menuItemsTopOffset bottom menuItemsBottomOffset
       width: 100%
-      overflow-x: hidden
-      overflow-y: auto
+      overflow: auto
       li
         height: menuButtonHeight
         padding-left: sidePadding
@@ -61,18 +64,18 @@
         cursor: pointer
         i
           width: 45px
-        .item-active-icon,
+        .item-active-icon, .item-active-text
+          color: cActive
         .item-active-text
-          color: cBaseLighter
-        .item-active-text
-          font-weight: 700
-      .item-active
+          font-weight: 500
+      .item-active, li:hover
         border-top: 1px solid cBaseLight
-        border-left: 3px solid pink
+        border-left: 3px solid cActiveBright
         background-color: cBaseDark
 
+    // Menu footer
     ul.menu-footer
-      fixed: bottom
+      absolute: bottom topBarHeight
       width: 100%
       li
         float: left
@@ -81,13 +84,15 @@
         line-height: menuFooterHeight
         text-align: center
         border-bottom: 1px solid cBaseLight
-        font-size: 20px
+        font-size: 28px
         color: cBaseLighter
         background-color: cBaseDark
         cursor: pointer
+      li:first-child, li:last-child
+        font-size: 16px
 
 @media (min-width:minWidthPhablet)
-  .menu
+  nav.menu
     width: mainMenuWidth
     .close-menu
       left: -(mainMenuWidth)

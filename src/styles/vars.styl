@@ -1,11 +1,14 @@
 
-// Extra small devices (phones, 0px and up)
+// Values need to match what's in configFactory.
 minWidthPhone = 0
 minWidthPhablet = 600px
+minWidthTablet = 768
+minWidthDesktop = 992px
+minWidthWide = 1200px
 
 // Layout - menu horizontal arrangement
-mainMenuWidth = 250px
-sidePadding = 35px
+mainMenuWidth = 260px
+sidePadding = 30px
 noHeadingTabs = 3
 noFooterTabs = 3
 menuHeadingWidth = 100 / noHeadingTabs + '%'
@@ -19,15 +22,24 @@ menuGroupTitleHeight = 40px
 menuButtonHeight = 50px
 menuFooterHeight = 45px
 menuItemsTopOffset = menuGroupTabsHeight + menuGroupTitleHeight
-menuItemsBottomOffset = menuGroupTabsHeight + menuFooterHeight + 10px
+menuItemsBottomOffset = topBarHeight + menuFooterHeight
+menuUserButtonHeight = 40px
 
-zIndexTopBar = zIndexMenu = 10
+zIndexTopBar = 20
+zIndexMenu = 10
 
 // Colors
+cGrayE = #eee
+cGrayD = #ddd
 cGrayC = #ccc
+cGray7 = #777
+cGray5 = #555
 cBase = #30426a
 cBaseDark = darken(cBase, 5)
 cBaseLight = lighten(cBase, 5)
 cBaseLighter = lighten(cBase, 30)
 cBaseTrans = transparentify(cBase, 0.98)
+// cActive = #ffd2d8  // pink
+cActive = #ffb
+cActiveBright = darken(cActive, 30)
 

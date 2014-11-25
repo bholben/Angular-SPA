@@ -1,18 +1,54 @@
 @import '../vars'
 @media (min-width:minWidthPhone)
 
-  .topbar
+// Top bar wrapper
+  div.topbar
     fixed: left right
     height: topBarHeight
     z-index: zIndexTopBar
-    font-size: 30px
-    color: cGrayC
+    color: cGrayE
     background-color: cBaseDark
 
-    i
+    // Main menu toggle icon (hamburger icon)
+    i.fa-bars
       float: left
       width: 100px
       padding-left: sidePadding
       line-height: topBarHeight
+      font-size: 30px
       cursor: pointer
+
+    // User menu toggle icon (avatar icon)
+    i.fa-user
+      float:right
+      width: 100px
+      line-height: topBarHeight
+      text-align: right
+      font-size: 30px
+      cursor: pointer
+
+    // User menu wrapper
+    nav.user
+      fixed: top (topBarHeight - 5px) right
+      width: 200px
+      margin: 0 16px
+      line-height: menuUserButtonHeight
+      color: cGray5
+      background-color: cGrayE
+      ul.user-menu-items
+        overflow: auto
+        li
+          height: menuUserButtonHeight
+          padding-left: sidePadding
+          border-bottom: 1px solid cGrayC
+          font-size: 15px
+          cursor: pointer
+        li:hover
+          background-color: cGrayC
+      ul.user-menu-items:after
+        absolute: top -8px right 15px
+        border-bottom: 8px solid #eee
+        border-right: 8px solid transparent
+        border-left: 8px solid transparent
+        content: ''
 

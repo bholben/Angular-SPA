@@ -3,12 +3,27 @@
   .view
     fixed: top topBarHeight left right
     height: 100%
-    overflow: visible
-    background-color: #ccc
-    z-index: zIndexContent
-  .view .view-transition.ng-enter
-    transition: all 0.5s ease
-    opacity: 0
-  .view .view-transition.ng-enter-active
-    opacity: 1
+    overflow: auto
+    background-color: cGrayD
+    .view-title
+      width: 100%
+      margin: 10px auto
+      text-align: center
+    .view-content
+      width: 100%
+      margin: 0 auto topBarHeight + 10px
+      padding: 15px
+      background-color: white
+    .view-content.ng-enter
+      transition: all 0.3s
+      opacity: 0
+    .view-content.ng-enter-active
+      opacity: 1
+
+@media (min-width:minWidthDesktop)
+  .view
+    .view-title
+      width: 900px
+    .view-content
+      width: 900px
 
