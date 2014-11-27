@@ -1,4 +1,4 @@
-##Responsive Angular SPA Template with Gulp
+##Angular-SPA
 
 This template is a staring point for building a responsive AngularJS single page application (SPA).  It is heavily influenced by Elliot Hesp's [Responsive Dashboard](https://github.com/Ehesp/Responsive-Dashboard), but ported to a slightly different architecture with a few different tools.
 
