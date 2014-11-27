@@ -2,7 +2,21 @@
   'use strict';
 
   angular.module('nav', ['nav.services'])
+    .config(routes)
     .controller('NavCtrl', NavCtrl);
+
+  function routes($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+      .state('index', {
+        url: '/',
+        views: {
+          'full': {
+            templateUrl: '/app/home/home.html'
+          }
+        }
+      });
+  }
 
   function NavCtrl($window, $rootScope, $state, menuFactory, minWidth) {
     // Quick access to factory data

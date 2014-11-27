@@ -10,9 +10,5 @@
       wide: 1200    // Bootstrap lg-min
     });
 
-    // .service('caps', function (s) {
-    //   return s[0].toUpperCase() + s.slice(1);
-    // });
-
 }());
 

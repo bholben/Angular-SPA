@@ -1,18 +1,20 @@
 (function () {
   'use strict';
 
-  angular.module('myApp', ['ngAnimate', 'ui.router', 'app.services', 'nav', 'books'])
-    .config(routes);
+  angular.module('angularSPA', [
+    'ngAnimate',
+    'ui.router',
+    'app.services',
+    'nav',
+    'books'
+  ])
 
-  function routes($stateProvider, $urlRouterProvider) {
+  // This entire config routes section is a placeholder until each view is
+  // built out.  It can go away once views are built and routing is built
+  // into each view's script file.
+  .config(routes);
 
-    $urlRouterProvider.otherwise('/');
-
-    $stateProvider
-      .state('index', {
-        url: '/',
-        templateUrl: '/app/home/home.html'
-      });
+  function routes($stateProvider) {
 
     var views = [
       'plane', 'car', 'bicycle', 'bus', 'rocket', 'shopping-cart', 'space-shuttle', 'taxi',
@@ -21,10 +23,8 @@
       'about', 'support', 'terms',
       'profile', 'settings', 'logout'
     ];
-    var viewsWithController = ['books'];
 
     views.forEach(createView);
-    viewsWithController.forEach(createControlledView);
 
     function createView(viewState) {
       $stateProvider
@@ -37,36 +37,7 @@
           }
         });
     }
-
-    function createControlledView(viewState) {
-      // Comments illustrate example where viewState = 'books'
-      $stateProvider
-        .state(viewState, {
-          // ex:  url = '/books'
-          url: '/' + viewState,
-          views: {
-            'list': {
-              // ex:  templateURL = '/app/books/books.html'
-              templateUrl: '/app/' + viewState + '/' + viewState + '.html',
-              // ex:  controller = 'BooksCtrl'
-              controller: capitalize(viewState) + 'Ctrl',
-              // ex:  controllerAs = 'bc'
-              controllerAs: viewState[0] + 'c'
-            },
-            'details': {
-              // ex:  templateURL = '/app/books/books.html'
-              templateUrl: '/app/' + viewState + '/' + viewState.slice(0, -1) + '.html',
-              // ex:  controller = 'BooksCtrl'
-              controller: capitalize(viewState.slice(0, -1)) + 'Ctrl',
-              // ex:  controllerAs = 'bc'
-              controllerAs: viewState[0] + 'cd'
-            }
-          }
-        });
-    }
   }
-
-  function capitalize(s) { return s[0].toUpperCase() + s.slice(1); }
 
 }());
 
