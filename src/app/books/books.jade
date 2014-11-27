@@ -1,0 +1,14 @@
+
+h4 List of Books
+div.filter
+  input(ng-model='book' placeholder=' Filter the list')
+div.table-responsive
+  table.table.table-hover
+    tr
+      th(ng-click="clickSort('id')") ID#
+      th(ng-click="clickSort('book')") Name
+    tr.table-row(ng-repeat='book in bc.books | filter: book' ng-click='clickRow()')
+      td.table-left {{ book.id }}
+      td.table-right {{ book.name }}
+div Total books in list: {{ bc.books.length }}
+

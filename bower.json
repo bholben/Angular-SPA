@@ -11,6 +11,7 @@
     "angular": "~1.3.2",
     "angular-animate": "~1.3.3",
     "angular-ui-router": "~0.2.13",
+    "bootstrap": "~3.3.1",
     "font-awesome": "~4.2.0"
   },
   "overrides": {
@@ -34,13 +35,33 @@
         ]
       }
     },
-    "angular-route": {
+    "angular-ui-router": {
       "main": {
         "dev": [
-          "./angular-route.js"
+          "./release/angular-ui-router.js"
         ],
         "prod": [
-          "./angular-route.min.js"
+          "./release/angular-ui-router.min.js"
+        ]
+      }
+    },
+    "bootstrap": {
+      "main": {
+        "dev": [
+          "dist/css/bootstrap.css",
+          "dist/css/bootstrap.css.map",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
+        ],
+        "prod": [
+          "dist/css/bootstrap.min.css",
+          "dist/css/bootstrap.css.map",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
         ]
       }
     },

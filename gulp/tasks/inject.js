@@ -19,8 +19,8 @@ module.exports = {
           .pipe($.order(['**jquery**', '**bootstrap**', '**angular.js'])),
           {ignorePath: paths.dest.root, name: 'components'}))
       .pipe($.inject(  // Inject custom files.
-        gulp.src(paths.dest.custom, {read: false})
-          .pipe($.angularFilesort()),
+        gulp.src(paths.dest.custom, {read: false}),
+          // .pipe($.angularFilesort()),
           {ignorePath: paths.dest.root, name: 'app'}))
       .pipe($.jade({pretty: true}))
       .pipe(gulp.dest(paths.dest.root))

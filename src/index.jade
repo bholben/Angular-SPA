@@ -1,5 +1,5 @@
 doctype html
-html(lang='en' ng-app='myApp' ng-strict-di)
+html(lang='en' ng-app='myApp')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
@@ -17,9 +17,7 @@ html(lang='en' ng-app='myApp' ng-strict-di)
     //- All JavaScript at the bottom, except for Modernizr (which includes HTML5 shim)
   body(ng-controller='NavCtrl as nav')
     include app/nav/nav.jade
-    div.view(ng-cloak ng-click='nav.closeUserMenu()')
-      h2.view-title {{ nav.viewName }}
-      div.view-content(ui-view)
+    include app/main_view/main_view.jade
     //- components:js
     //- endinject
     //- app:js

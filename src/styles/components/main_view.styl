@@ -9,21 +9,42 @@
       width: 100%
       margin: 10px auto
       text-align: center
-    .view-content
+    .view-pane
       width: 100%
+      height: 100%
       margin: 0 auto topBarHeight + 10px
-      padding: 15px
-      background-color: white
-    .view-content.ng-enter
-      transition: all 0.3s
-      opacity: 0
-    .view-content.ng-enter-active
-      opacity: 1
+      .view-full
+        width: 100%
+      .view-left, .view-right
+        width: 95%
+        height: 100%
+        margin: 0 auto topBarHeight + 10px
+      .view-content, .view-list, .view-details
+        height: 100%
+        padding: 15px
+        background-color: white
+      .view-content.ng-enter,
+      .view-list.ng-enter,
+      .view-details.ng-enter
+        transition: all 0.3s
+        opacity: 0
+      .view-content.ng-enter-active,
+      .view-list.ng-enter-active,
+      .view-details.ng-enter-active
+        opacity: 1
 
-@media (min-width:minWidthDesktop)
+@media (min-width:minWidthTablet)
   .view
-    .view-title
+    .view-title, .view-pane
       width: 900px
-    .view-content
-      width: 900px
+      .view-full
+        padding: 15px
+      .view-left,
+      .view-right
+        width: 50%
+        padding: 15px
+      .view-left
+        float: left
+      .view-right
+        float: right
 

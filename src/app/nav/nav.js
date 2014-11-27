@@ -1,13 +1,12 @@
 (function () {
   'use strict';
 
-  angular
-    .module('NavCtrl', ['navFactory'])
+  angular.module('nav', ['nav.services'])
     .controller('NavCtrl', NavCtrl);
 
-  function NavCtrl($window, $rootScope, $location, navFactory) {
+  function NavCtrl($window, $rootScope, $state, menuFactory, minWidth) {
     // Quick access to factory data
-    var menus = navFactory.getMenus();
+    var menus = menuFactory.getMenus();
     // Initialization
     this.menuGroups =      menus.groups;
     this.menuGroupMain =   menus.menuGroupA;
@@ -38,7 +37,7 @@
     };
 
     this.isActiveMenu = function (item) {
-      return item.uri === $location.url();
+      return item.state === $state.current.name;
     };
 
     // User menu behavior
@@ -53,13 +52,11 @@
     // All menus behavior
     this.selectView = function (item) {
       // For smaller screens, push the main menu aside when view selected.
-      if (item.icon && $window.innerWidth < $rootScope.minWidth.desktop) {
-        this.showMainMenu = false;
-      }
+      if ($window.innerWidth < minWidth.desktop) { this.showMainMenu = false; }
       // Pull in the view heading.
       this.viewName = item.name;
-      // Pull in the view.
-      $location.url(item.uri);
+      // Pull in the view state.
+      $state.go(item.state);
     };
   }
 
