@@ -1,7 +1,7 @@
 {
-  "name": "Gulp-Template",
+  "name": "Angular-SPA",
   "version": "0.0.1",
-  "description": "Web app template with gulpfile that compiles/injects Jade, Stylus, Bower refs",
+  "description": "Angular Single-page App boilerplate",
   "author": "Bob Holben",
   "license": "MIT",
   "devDependencies": {
@@ -32,6 +32,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/bholben/gulp-template.git"
+    "url": "git://github.com/bholben/Angular-SPA.git"
   }
 }
