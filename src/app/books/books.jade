@@ -7,8 +7,8 @@ div.table-responsive
     tr
       th(ng-click="clickSort('id')") ID#
       th(ng-click="clickSort('book')") Name
-    tr.table-row(ng-repeat='book in bc.books | filter: book' ng-click='clickRow()')
+    tr.table-row(ng-repeat='book in blc.books | filter: book' ng-click='clickRow()')
       td.table-left {{ book.id }}
       td.table-right {{ book.name }}
-div Total books in list: {{ bc.books.length }}
+div Total books in list: {{ blc.books.length }}
 

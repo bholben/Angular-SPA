@@ -11,18 +11,19 @@
         url: '/',
         views: {
           'full': {
-            templateUrl: '/app/home/home.html'
+            templateUrl: '/app/home/home.html',
+            controller: function ($rootScope, turnOnViews) {
+              turnOnViews($rootScope, ['full']);
+            }
           }
         }
       });
   })
 
-  .controller('NavCtrl', function ($window, $rootScope, $state, menuFactory, minWidth) {
+  .controller('NavCtrl', function ($window, $rootScope, $state, menus, minWidth) {
 
-    // Quick access to factory data
-    var menus = menuFactory.getMenus();
     // Initialization
-    this.menuGroups =      menus.groups;
+    this.menuGroups =      menus.menuGroupings;
     this.menuGroupMain =   menus.menuGroupA;
     this.menuGroupFooter = menus.menuGroupFooter;
     this.menuGroupUser =   menus.menuGroupUser;

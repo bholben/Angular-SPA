@@ -6,22 +6,15 @@
     'ui.router',
     'app.services',
     'nav',
+    'nav.services',
     'books'
   ])
 
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, staticViews) {
 
-    // The state of all 'full' views with no controller are captured here.
-    // All non-standard views are managed from their respective script files.
-    var views = [
-      'plane', 'car', 'bicycle', 'bus', 'rocket', 'shopping-cart', 'space-shuttle', 'taxi',
-      'relaxing', 'dining', 'shopping', 'sight_seeing', 'sporting_events', 'gameing',
-      'cc-visa', 'cc-mastercard', 'cc-amex', 'cc-discover',
-      'about', 'support', 'terms',
-      'profile', 'settings', 'logout'
-    ];
-
-    views.forEach(function (viewState) {
+    // The state of all static 'full' views with no controller are captured
+    // here.  Non-standard views are managed from their respective script files.
+    staticViews.forEach(function (viewState) {
       $stateProvider.state(viewState, {
         url: '/' + viewState,
         views: {

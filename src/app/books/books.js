@@ -20,12 +20,12 @@
         'list': {
           templateUrl: '/app/books/books.html',
           controller: BooksCtrl,
-          controllerAs: 'bc'
+          controllerAs: 'blc'
         },
         'details': {
           templateUrl: '/app/books/book.html',
           controller: BookCtrl,
-          controllerAs: 'bcd'
+          controllerAs: 'bdc'
         }
       }
     });
