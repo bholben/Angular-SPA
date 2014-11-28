@@ -20,16 +20,17 @@
       });
   })
 
-  .controller('NavCtrl', function ($window, $rootScope, $state, menus, minWidth) {
+  .controller('NavCtrl',
+    function ($window, $rootScope, $state, menuGroupHeadings, menus, minWidth) {
 
     // Initialization
-    this.menuGroups =      menus.menuGroupings;
+    this.menuGroups =      menuGroupHeadings;
     this.menuGroupMain =   menus.menuGroupA;
     this.menuGroupFooter = menus.menuGroupFooter;
     this.menuGroupUser =   menus.menuGroupUser;
-    this.viewName = '';
     this.showMainMenu = true;
     this.showUserMenu = false;
+    $rootScope.viewName = '';
 
     // Main menu behavior
     this.toggleMainMenu = function () {
@@ -69,7 +70,7 @@
       // For smaller screens, push the main menu aside when view selected.
       if ($window.innerWidth < minWidth.desktop) { this.showMainMenu = false; }
       // Pull in the view heading if it is defined.
-      this.viewName = item.name;
+      $rootScope.viewName = item.name;
       // Pull in the view state.
       $state.go(item.state);
     };

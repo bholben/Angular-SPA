@@ -3,14 +3,18 @@
 
   angular.module('nav.services', [])
 
-  .value('menus', {
+  .value('menuGroupHeadings', [
 
-    menuGroupings:
-    [
-      {name: 'menuA', icon: 'suitcase'},
-      {name: 'menuB', icon: 'picture-o'},
-      {name: 'menuC', icon: 'credit-card'}
-    ],
+    {name: 'menuA', icon: 'suitcase'},
+    {name: 'menuB', icon: 'picture-o'},
+    {name: 'menuC', icon: 'credit-card'}
+  ])
+
+  .constant('menus', {
+
+    // Using 'constant' instead of 'value' here facilitates injection into
+    // 'angular.module('angularSPA').config'.
+
     // 'items: name' property used for menu text AND view heading.
     // 'items: state' property used for view state AND icon if none provided.
     menuGroupA: {name: 'menuA', heading: 'Transportation', items: [
@@ -49,23 +53,7 @@
       // {name: '', divider: 'divider'},
       {name: 'Log Out',          state: 'logout'}
     ]}
-  })
-
-  .constant('staticViews', [
-
-    // Using 'constant' instead of 'value' here facilitates injection into
-    // 'angular.module('angularSPA').config'.
-
-    'plane', 'car', 'bicycle', 'bus', 'rocket', 'shopping-cart', 'space-shuttle', 'taxi',
-    'relaxing', 'dining', 'shopping', 'sight_seeing', 'sporting_events', 'gameing',
-    'cc-visa', 'cc-mastercard', 'cc-amex', 'cc-discover',
-    'about', 'support', 'terms',
-    'profile', 'settings', 'logout'
-  ]);
-
-  (function (views) {
-    console.log(views);
-  }());
+  });
 
 }());
 
