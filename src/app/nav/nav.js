@@ -2,10 +2,9 @@
   'use strict';
 
   angular.module('nav', ['nav.services'])
-    .config(configureView)
-    .controller('NavCtrl', NavCtrl);
 
-  function configureView($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
+
     $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('home', {
@@ -16,9 +15,10 @@
           }
         }
       });
-  }
+  })
 
-  function NavCtrl($window, $rootScope, $state, menuFactory, minWidth) {
+  .controller('NavCtrl', function ($window, $rootScope, $state, menuFactory, minWidth) {
+
     // Quick access to factory data
     var menus = menuFactory.getMenus();
     // Initialization
@@ -72,7 +72,7 @@
       // Pull in the view state.
       $state.go(item.state);
     };
-  }
+  });
 
 }());
 

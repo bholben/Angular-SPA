@@ -9,9 +9,8 @@
     'books'
   ])
 
-  .config(configureSimpleViews);
+  .config(function ($stateProvider) {
 
-  function configureSimpleViews($stateProvider) {
     // The state of all 'full' views with no controller are captured here.
     // All non-standard views are managed from their respective script files.
     var views = [
@@ -22,9 +21,7 @@
       'profile', 'settings', 'logout'
     ];
 
-    views.forEach(createView);
-
-    function createView(viewState) {
+    views.forEach(function (viewState) {
       $stateProvider.state(viewState, {
         url: '/' + viewState,
         views: {
@@ -36,9 +33,9 @@
           }
         }
       });
-    }
+    });
 
-  }
+  });
 
 }());
 

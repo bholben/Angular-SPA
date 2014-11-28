@@ -2,11 +2,18 @@
   'use strict';
 
   angular.module('books', ['books.services'])
-    .config(configureView)
-    // .controller('BooksCtrl', BooksCtrl)
-    .controller('BookCtrl', BookCtrl);
 
-  function configureView($stateProvider) {
+  .config(function ($stateProvider) {
+
+    var BooksCtrl = function ($rootScope, bookFactory, turnOnViews) {
+      turnOnViews($rootScope, ['left', 'right']);
+      this.books = bookFactory.getBooks();
+    };
+
+    var BookCtrl = function () {
+      this.book = 'Here are some book details!';
+    };
+
     $stateProvider.state('books', {
       url: '/books',
       views: {
@@ -17,20 +24,12 @@
         },
         'details': {
           templateUrl: '/app/books/book.html',
-          controller: 'BookCtrl as bcd'
+          controller: BookCtrl,
+          controllerAs: 'bcd'
         }
       }
     });
-  }
-
-  function BooksCtrl($rootScope, bookFactory, turnOnViews) {
-    turnOnViews($rootScope, ['left', 'right']);
-    this.books = bookFactory.getBooks();
-  }
-
-  function BookCtrl() {
-    this.book = 'Here are some book details!';
-  }
+  });
 
 }());
 

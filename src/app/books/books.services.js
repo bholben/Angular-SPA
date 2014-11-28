@@ -2,14 +2,13 @@
   'use strict';
 
   angular.module('books.services', [])
-    .factory('bookFactory', bookFactory);
 
-  function bookFactory() {
+  .factory('bookFactory', function () {
 
     var books = [
       {
         id: 1,
-        name: 'To Kill a Mockingbird'
+        name: 'ng-book'
       },
       {
         id: 2,
@@ -20,7 +19,8 @@
     return {
       getBooks: function () { return books; }
     };
-  }
+
+  });
 
 }());
 

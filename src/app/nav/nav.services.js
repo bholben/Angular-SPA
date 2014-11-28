@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('nav.services', [])
-    .factory('menuFactory', menuFactory);
 
-  function menuFactory() {
+  .factory('menuFactory', function () {
+
     var menuGroupings = {
       groups: [
         {name: 'menuA', icon: 'suitcase'},
@@ -54,7 +54,7 @@
     return {
       getMenus: function () { return menuGroupings; }
     };
-  }
+  });
 
 }());
 
