@@ -2,13 +2,13 @@
   'use strict';
 
   angular.module('nav', ['nav.services'])
-    .config(routes)
+    .config(configureView)
     .controller('NavCtrl', NavCtrl);
 
-  function routes($stateProvider, $urlRouterProvider) {
+  function configureView($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('index', {
+      .state('home', {
         url: '/',
         views: {
           'full': {
@@ -26,7 +26,7 @@
     this.menuGroupMain =   menus.menuGroupA;
     this.menuGroupFooter = menus.menuGroupFooter;
     this.menuGroupUser =   menus.menuGroupUser;
-    this.viewName = 'Home';
+    this.viewName = '';
     this.showMainMenu = true;
     this.showUserMenu = false;
 
@@ -67,7 +67,7 @@
     this.selectView = function (item) {
       // For smaller screens, push the main menu aside when view selected.
       if ($window.innerWidth < minWidth.desktop) { this.showMainMenu = false; }
-      // Pull in the view heading.
+      // Pull in the view heading if it is defined.
       this.viewName = item.name;
       // Pull in the view state.
       $state.go(item.state);

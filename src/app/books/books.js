@@ -2,34 +2,34 @@
   'use strict';
 
   angular.module('books', ['books.services'])
-    .config(route)
-    .controller('BooksCtrl', BooksCtrl)
+    .config(configureView)
+    // .controller('BooksCtrl', BooksCtrl)
     .controller('BookCtrl', BookCtrl);
 
-  function route($stateProvider) {
+  function configureView($stateProvider) {
     $stateProvider.state('books', {
       url: '/books',
       views: {
         'list': {
           templateUrl: '/app/books/books.html',
-          controller: 'BooksCtrl',
+          controller: BooksCtrl,
           controllerAs: 'bc'
         },
         'details': {
           templateUrl: '/app/books/book.html',
-          controller: 'BookCtrl',
-          controllerAs: 'bcd'
+          controller: 'BookCtrl as bcd'
         }
       }
     });
   }
 
-  function BooksCtrl(bookFactory) {
+  function BooksCtrl($rootScope, bookFactory, turnOnViews) {
+    turnOnViews($rootScope, ['left', 'right']);
     this.books = bookFactory.getBooks();
   }
 
   function BookCtrl() {
-    this.book = 'Got booooooooooooooook!';
+    this.book = 'Here are some book details!';
   }
 
 }());

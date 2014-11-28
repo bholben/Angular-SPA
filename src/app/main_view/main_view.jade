@@ -1,10 +1,10 @@
-div.view(ng-cloak ng-click='nav.closeUserMenu()')
-  h2.view-title {{ nav.viewName }}
-  div.view-pane
-    div.view-full
+div.views(ng-cloak ng-click='nav.closeUserMenu()')
+  h2.views-title {{ nav.viewName }}
+  div.views-pane
+    div.view-frame-full(ng-class='{hidden: !isFullView}')
       div.view-content(ui-view='full') Loading...
-    div.view-left
-      div.view-list(ui-view='list') Loading...
-    div.view-right
-      div.view-details(ui-view='details') Loading...
+    div.view-frame-left(ng-class='{hidden: !isLeftView}')
+      div.view-content(ui-view='list') Loading...
+    div.view-frame-right(ng-class='{hidden: !isRightView}')
+      div.view-content(ui-view='details') Loading...
 

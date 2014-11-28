@@ -1,50 +1,46 @@
 @import '../vars'
 @media (min-width:minWidthPhone)
-  .view
+  .views
     fixed: top topBarHeight left right
     height: 100%
     overflow: auto
     background-color: cGrayD
-    .view-title
+    .views-title
       width: 100%
       margin: 10px auto
       text-align: center
-    .view-pane
+    .views-pane
       width: 100%
       height: 100%
       margin: 0 auto topBarHeight + 10px
-      .view-full
+      .view-frame-full
         width: 100%
-      .view-left, .view-right
+      .view-frame-left, .view-frame-right
         width: 95%
         height: 100%
         margin: 0 auto topBarHeight + 10px
-      .view-content, .view-list, .view-details
+      .view-content
         height: 100%
         padding: 15px
         background-color: white
-      .view-content.ng-enter,
-      .view-list.ng-enter,
-      .view-details.ng-enter
+      .view-content.ng-enter
         transition: all 0.3s
         opacity: 0
-      .view-content.ng-enter-active,
-      .view-list.ng-enter-active,
-      .view-details.ng-enter-active
+      .view-content.ng-enter-active
         opacity: 1
 
 @media (min-width:minWidthTablet)
-  .view
-    .view-title, .view-pane
+  .views
+    .views-title, .views-pane
       width: 900px
-      .view-full
+      .view-frame-full
         padding: 15px
-      .view-left,
-      .view-right
+      .view-frame-left,
+      .view-frame-right
         width: 50%
         padding: 15px
-      .view-left
+      .view-frame-left
         float: left
-      .view-right
+      .view-frame-right
         float: right
 

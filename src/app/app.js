@@ -9,13 +9,11 @@
     'books'
   ])
 
-  // This entire config routes section is a placeholder until each view is
-  // built out.  It can go away once views are built and routing is built
-  // into each view's script file.
-  .config(routes);
+  .config(configureSimpleViews);
 
-  function routes($stateProvider) {
-
+  function configureSimpleViews($stateProvider) {
+    // The state of all 'full' views with no controller are captured here.
+    // All non-standard views are managed from their respective script files.
     var views = [
       'plane', 'car', 'bicycle', 'bus', 'rocket', 'shopping-cart', 'space-shuttle', 'taxi',
       'relaxing', 'dining', 'shopping', 'sight_seeing', 'sporting_events', 'gameing',
@@ -27,16 +25,19 @@
     views.forEach(createView);
 
     function createView(viewState) {
-      $stateProvider
-        .state(viewState, {
-          url: '/' + viewState,
-          views: {
-            'full': {
-              templateUrl: '/app/' + viewState + '/' + viewState + '.html'
+      $stateProvider.state(viewState, {
+        url: '/' + viewState,
+        views: {
+          'full': {
+            templateUrl: '/app/' + viewState + '/' + viewState + '.html',
+            controller: function ($rootScope, turnOnViews) {
+              turnOnViews($rootScope, ['full']);
             }
           }
-        });
+        }
+      });
     }
+
   }
 
 }());
